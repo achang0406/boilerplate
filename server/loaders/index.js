@@ -1,5 +1,5 @@
-import expressLoader from './express.js'
+import expressLoader from './express.js';
 
-export default ( app ) => {
-  expressLoader(app)
-}
+export default (app) => {
+  expressLoader(app);
+};

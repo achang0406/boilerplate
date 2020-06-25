@@ -8,6 +8,13 @@
     "browser": true,
     "node": true
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": 1,
+    "comma-dangle": ["error", "always-multiline"],
+    "array-bracket-spacing": 1,
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "block-spacing": 1,
+  }
 }
 

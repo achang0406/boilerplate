@@ -1,19 +1,19 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
     main: [
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
       '@babel/polyfill',
-      './client/index.js'
-    ]
+      './client/index.js',
+    ],
   },
   output: {
     path: path.join(process.cwd(), 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].js',
   },
   mode: 'development',
   target: 'web',
@@ -21,49 +21,49 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         options: {
           emitWarning: true,
           failOnError: false,
-          failOnWarning: false
-        }
+          failOnWarning: false,
+        },
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins 
+        // Entry point is set below in HtmlWebPackPlugin in Plugins
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
             //options: { minimize: true }
-          }
-        ]
-      },
-      { 
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+          },
+        ],
       },
       {
-       test: /\.(png|svg|jpg|gif)$/,
-       use: ['file-loader']
-      }
-    ]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./client/html/index.html",
-      filename: "./index.html",
-      excludeChunks: [ 'server' ]
+      template: './client/html/index.html',
+      filename: './index.html',
+      excludeChunks: ['server'],
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
-}
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
+};

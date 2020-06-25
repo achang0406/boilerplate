@@ -1,4 +1,4 @@
-import pkg from 'pg'
+import pkg from 'pg';
 
 // local postgres connection
 
@@ -8,4 +8,4 @@ export default new pkg.Pool({
   database: 'library',
   password: 'password',
   port: 5432,
-})
+});

@@ -6,7 +6,6 @@
  * Note: that prod and dev mode are set in npm scripts.
  */
  const path = require('path')
- const webpack = require('webpack')
  const nodeExternals = require('webpack-node-externals')
 
  module.exports = (env, argv) => {
@@ -30,6 +29,17 @@
      module: {
        rules: [
          {
+          enforce: "pre",
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "eslint-loader",
+          options: {
+            emitWarning: true,
+            failOnError: false,
+            failOnWarning: false
+          }
+        },
+         {
            // Transpiles ES6-8 into ES5
            test: /\.js$/,
            exclude: /node_modules/,
@@ -38,6 +48,16 @@
            }
          }
        ]
+     },
+     resolve: {
+      alias: {
+        'Models': path.resolve(__dirname, './models'),
+        'Api': path.resolve(__dirname, './api'),
+        'Config': path.resolve(__dirname, './config'),
+        'Constants': path.resolve(__dirname, './constants'),
+        'Loaders': path.resolve(__dirname, './loaders'),
+        'Client': path.resolve(process.cwd(), './client'),
+      }
      }
    })
  }

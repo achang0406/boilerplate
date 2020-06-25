@@ -1,14 +1,14 @@
 import { handleActions } from 'redux-actions';
 
 import {
-    TEST,
+    TEST_ACTION,
 } from './actions';
 
 const INITIAL_STATE = {};
 
 export default handleActions(
     {
-        [TEST]: (state, action) => ({
+        [TEST_ACTION]: (state, action) => ({
           ...state,
           [action.payload]: {
             test: 'test',

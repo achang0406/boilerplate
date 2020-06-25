@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const App = () => {
   return (
@@ -6,7 +6,7 @@ const App = () => {
       <h1>App</h1>
       <p className="description">Library</p>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
