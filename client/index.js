@@ -1,11 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Message from './js/Message'
+import App from './js/App'
+
+import { Provider } from 'react-redux'
+import store from './js/store'
 
 import './css/style.css'
 
 ReactDOM.render(
-  <Message />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('app') // eslint-disable-line no-undef
 )
 

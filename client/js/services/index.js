@@ -1,3 +1,3 @@
-export { default as users } from './users';
-export { default as players } from './players';
-export { default as games } from './games';
+export { default as books } from './books';
+export { default as libraries } from './libraries';
+export { default as persons } from './persons';
