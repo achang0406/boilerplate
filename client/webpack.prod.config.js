@@ -3,8 +3,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const baseConfig = require('./webpack.base.config.js');
 
 module.exports = {
+  ...baseConfig,
   entry: {
     main: './client/index.js',
   },

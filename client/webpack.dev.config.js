@@ -1,8 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const baseConfig = require('./webpack.base.config.js');
 
 module.exports = {
+  ...baseConfig,
   entry: {
     main: [
       'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',

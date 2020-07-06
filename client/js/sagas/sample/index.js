@@ -4,7 +4,7 @@
 // </copyright>
 // ----------------------------------------------------------------
 
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 
 // import Services from '../../services';
 
@@ -12,7 +12,7 @@ import {
     test_action,
 } from '../../store/sample';
 
-export function* getSample(request) {
+export function* getSample() {
     // try {
     //     yield put(actionStatusStarted({ actionName: GET_WIC_ADDRESS_DATA }));
     //     const response = yield call(

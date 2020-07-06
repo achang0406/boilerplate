@@ -10,7 +10,8 @@ const app = express(),
   DIST_DIR = __dirname,
   HTML_FILE = path.join(DIST_DIR, 'index.html');
 
-if (process.env.NODE_ENV || 'development') {
+if (process.env.NODE_ENV === 'development') {
+  console.log('node dev');
   const compiler = webpack(config);
 
   app.use(
