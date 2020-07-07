@@ -15,14 +15,12 @@ function configureStore() {
     const middleWareEnhancer = applyMiddleware(...middlewares);
 
     if (process.env.NODE_ENV === 'development') {
-        console.log('dev store');
         return createStore(
             rootReducers,
             // TODO: find out if we should remove redux dev tools in production or not.
             composeWithDevTools(middleWareEnhancer)
         );
     }
-    console.log('prod store');
     return createStore(rootReducers, middleWareEnhancer);
 }
 
