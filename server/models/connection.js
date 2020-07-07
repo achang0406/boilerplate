@@ -20,7 +20,7 @@ if (ENV === 'development') {
 } else {
     config = {
       connectionString: DATABASE_URL,
-      ssl: true,
+      ssl: false,
     };
 }
 
