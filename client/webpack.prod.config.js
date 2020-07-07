@@ -8,7 +8,10 @@ const baseConfig = require('./webpack.base.config.js');
 module.exports = {
   ...baseConfig,
   entry: {
-    main: './client/index.js',
+    main: [
+    '@babel/polyfill',
+    './client/index.js',
+    ],
   },
   output: {
     path: path.join(process.cwd(), 'dist'),

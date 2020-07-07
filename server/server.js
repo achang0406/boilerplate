@@ -3,27 +3,26 @@ import express from 'express';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from 'Client/webpack.dev.config.js';
+import devConfig from 'Client/webpack.dev.config.js';
 import loaders from 'Loaders';
 
 const app = express(),
   DIST_DIR = __dirname,
-  HTML_FILE = path.join(DIST_DIR, 'index.html');
+  ENV = process.env.NODE_ENV || 'development';
 
-if (process.env.NODE_ENV === 'development') {
-  console.log('node dev');
-  const compiler = webpack(config);
+if (ENV === 'development') {
+  const compiler = webpack(devConfig);
 
   app.use(
     webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
+      publicPath: devConfig.output.publicPath,
     })
   );
 
   app.use(webpackHotMiddleware(compiler));
+} else {
+  app.use(express.static(DIST_DIR));
 }
-
-app.use(express.static(HTML_FILE));
 
 loaders(app);
 

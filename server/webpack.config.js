@@ -5,6 +5,8 @@
  *
  * Note: that prod and dev mode are set in npm scripts.
  */
+ // load all env variables from .env file into process.env object.
+require('dotenv').config();
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
