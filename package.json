@@ -12,22 +12,12 @@
     "build:prod": "npm run rmBundle && npm run build:server && webpack --mode production --config ./client/webpack.prod.config.js",
     "start:dev": "NODE_ENV=development node ./dist/server.js",
     "start:prod": "NODE_ENV=production node ./dist/server.js",
-    "start": "npm run start:dev"
+    "start": "npm run start:dev",
+    "heroku-postbuild": "npm run build:prod"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@babel/polyfill": "^7.10.1",
-    "express": "^4.16.4",
-    "pg": "^8.2.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "redux-actions": "^2.6.5",
-    "redux-saga": "^1.1.3",
-    "reselect": "^4.0.0"
-  },
   "engines": {
     "node": ">=4.3.2"
   },
@@ -37,7 +27,16 @@
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
-  "devDependencies": {
+  "dependencies": {
+    "@babel/polyfill": "^7.10.1",
+    "express": "^4.16.4",
+    "pg": "^8.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux-actions": "^2.6.5",
+    "redux-saga": "^1.1.3",
+    "reselect": "^4.0.0",
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
