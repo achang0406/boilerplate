@@ -4,6 +4,8 @@ const { env } = process;
 const DATABASE_URL = env.DATABASE_URL;
 const ENV = env.NODE_ENV || 'development';
 
+console.log(`DATABASE_URL = ${DATABASE_URL}`);
+
 let config = {};
 
 // checking to know the environment and suitable connection string to use
