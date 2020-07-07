@@ -7,9 +7,9 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "rmBundle": "rm -rf dist",
-    "buildServer": "webpack --mode development --config ./server/webpack.config.js",
-    "buildDev": "npm run rmBundle && npm run buildServer && NODE_ENV=development webpack --mode development --config ./client/webpack.dev.config.js",
-    "buildProd": "npm run rmBundle && npm run buildServer && webpack --mode production --config ./client/webpack.prod.config.js",
+    "build:server": "webpack --mode development --config ./server/webpack.config.js",
+    "build:dev": "npm run rmBundle && npm run build:server && NODE_ENV=development webpack --mode development --config ./client/webpack.dev.config.js",
+    "build:prod": "npm run rmBundle && npm run build:server && webpack --mode production --config ./client/webpack.prod.config.js",
     "start:dev": "NODE_ENV=development node ./dist/server.js",
     "start:prod": "NODE_ENV=production node ./dist/server.js",
     "start": "npm run start:dev"
