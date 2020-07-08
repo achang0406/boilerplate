@@ -1,7 +1,9 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getPersons } from './store/persons';
+import { getPersons } from 'Store/persons';
+
+import Sample from './sample';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -11,6 +13,8 @@ const App = () => {
       <h1>App</h1>
       <button onClick={() => dispatch(getPersons())}>Get Persons</button>
       <p className="description">Library</p>
+
+      <Sample />
     </div>
   );
 };

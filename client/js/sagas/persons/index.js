@@ -6,12 +6,12 @@
 
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import Services from '../../services/persons';
+import Services from 'Services/persons';
 
 import {
     GET_PERSONS,
     getPersonsSuccess,
-} from '../../store/persons';
+} from 'Store/persons';
 
 function* getPersons() {
     try {

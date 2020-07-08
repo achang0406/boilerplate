@@ -10,7 +10,7 @@ import { takeLatest } from 'redux-saga/effects';
 
 import {
     test_action,
-} from '../../store/sample';
+} from 'Store/sample';
 
 export function* getSample() {
     // try {

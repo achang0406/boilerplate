@@ -1,6 +1,6 @@
 import database from './connection.js';
 
-import HTTP_RESPONSE from '../constants/httpResponse.js';
+import HTTP_RESPONSE from 'Constants/httpResponse.js';
 
 const getRows = (table, request, response) => {
   database.query(`SELECT * FROM ${table} ORDER BY id ASC`, (error, results) => {

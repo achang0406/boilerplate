@@ -1,6 +1,7 @@
 import bodyParser from 'body-parser';
 import api from 'Api';
 import config from 'Config';
+import HTTP_RESPONSE from 'Constants/httpResponse.js';
 
 export default (app) => {
   /**
@@ -34,10 +35,16 @@ export default (app) => {
   // Load API routes
   app.use(config.api.prefix, api());
 
+  // default home page on load
+  app.use((req, res) => {
+    res.redirect('/');
+  });
+
   /// catch 404 and forward to error handler
   app.use((req, res, next) => {
-    const err = new Error('Not Found BLAH');
-    err['status'] = 404;
+    const err = new Error('Not Found');
+    err['status'] = HTTP_RESPONSE.NOT_FOUND;
+
     next(err);
   });
 
@@ -51,8 +58,9 @@ export default (app) => {
     }
     return next(err);
   });
+
   app.use((err, req, res) => {
-    res.status(err.status || 500);
+    res.status(err.status || HTTP_RESPONSE.SERVER_ERROR);
     res.json({
       errors: {
         message: err.message,

@@ -1,6 +1,6 @@
 import base from './base';
 
-const ENDPOINT = '/books';
+const ENDPOINT = 'books';
 
 function getBooks() {
   return base.fetchApi({
